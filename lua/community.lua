@@ -11,7 +11,7 @@ return {
   { import = "astrocommunity.pack.json" },
   { import = "astrocommunity.recipes.diagnostic-virtual-lines-current-line" },
   { import = "astrocommunity.recipes.heirline-nvchad-statusline" },
-  { import = "astrocommunity.recipes.heirline-clock-statusline" },
+  -- { import = "astrocommunity.recipes.heirline-clock-statusline" },
   { import = "astrocommunity.recipes.picker-nvchad-theme" },
   { import = "astrocommunity.recipes.heirline-vscode-winbar" },
   { import = "astrocommunity.motion.mini-ai" },
