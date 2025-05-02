@@ -47,6 +47,7 @@ return {
         scrolloff = 15,
         tabstop = 4,
         shiftwidth = 4,
+        cmdheight = 1,
       },
       g = { -- vim.g.<key>
         -- configure global vim variables (vim.g)
