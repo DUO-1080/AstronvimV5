@@ -20,3 +20,14 @@ vim.api.nvim_create_autocmd("InsertEnter", {
     end
   end,
 })
+
+local ls = require "luasnip"
+
+vim.keymap.set({ "i", "s" }, "<Esc>", function()
+  if ls.in_snippet() then
+    ls.unlink_current() -- 退出 snippet session
+    return "<Esc>" -- 阻止跳回 Normal 模式（可选，按你需要）
+  else
+    return "<Esc>" -- 普通 Esc 正常退出插入模式
+  end
+end, { expr = true, silent = true, desc = "Exit snippet session" })
