@@ -29,10 +29,27 @@ return {
         foo = "fooscript",
       },
       filename = {
+        ["default.custom.yaml"] = "yaml",
         [".foorc"] = "fooscript",
       },
       pattern = {
         [".*/etc/foo/.*"] = "fooscript",
+      },
+    },
+    autocmds = {
+      rime_fix = {
+        {
+          -- 在读取文件内容之前就截断报错的插件加载路径
+          event = { "BufReadPre", "BufNewFile" },
+          pattern = "default.custom.yaml",
+          callback = function(args)
+            -- 告诉 Neovim 这个缓冲区的插件和缩进已经处理过了，不要再跑一遍
+            vim.b[args.buf].did_ftplugin = 1
+            vim.b[args.buf].did_indent = 1
+            -- 预设一个干净的状态
+            vim.b[args.buf].current_compiler = nil
+          end,
+        },
       },
     },
     -- vim options can be configured here
@@ -48,6 +65,7 @@ return {
         tabstop = 4,
         shiftwidth = 4,
         cmdheight = 1,
+        modeline = true,
       },
       g = { -- vim.g.<key>
         -- configure global vim variables (vim.g)
