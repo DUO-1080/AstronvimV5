@@ -45,6 +45,7 @@ return {
           -- setting a mapping to false will disable it
           -- ["<esc>"] = false,
           ["<C-\\>"] = { "<cmd>ToggleTerm<cr>", desc = "open term" },
+          ["<C-n>"] = { "<C-\\><C-n>", desc = "terminal normal mode" },
         },
       },
     },

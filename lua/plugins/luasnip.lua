@@ -11,18 +11,18 @@ return {
 
       require "astronvim.plugins.configs.luasnip"(plugin, opts)
 
-      -- 激进清理：如果检测到没有跳跃点处于活跃状态，强制断开
-      local luasnip = require "luasnip"
-      vim.api.nvim_create_autocmd("InsertLeave", {
-        callback = function()
-          if
-            require("luasnip").session.current_nodes[vim.api.nvim_get_current_buf()]
-            and not require("luasnip").session.jump_active
-          then
-            require("luasnip").unlink_current()
-          end
-        end,
-      })
+      -- -- 激进清理：如果检测到没有跳跃点处于活跃状态，强制断开
+      -- local luasnip = require "luasnip"
+      -- vim.api.nvim_create_autocmd("InsertLeave", {
+      --   callback = function()
+      --     if
+      --       require("luasnip").session.current_nodes[vim.api.nvim_get_current_buf()]
+      --       and not require("luasnip").session.jump_active
+      --     then
+      --       require("luasnip").unlink_current()
+      --     end
+      --   end,
+      -- })
     end,
   },
 }
