@@ -31,3 +31,26 @@ vim.keymap.set({ "i", "s" }, "<Esc>", function()
     return "<Esc>" -- 普通 Esc 正常退出插入模式
   end
 end, { expr = true, silent = true, desc = "Exit snippet session" })
+
+-- vim.cmd [[
+--   highlight CursorNormal guifg=NONE guibg=#D08770  " Normal/Command 模式，柔和金色
+--   highlight CursorInsert guifg=NONE guibg=#A3BE8C  " Insert 模式，柔和亮绿色
+-- ]]
+
+-- 设置光标形状和闪烁
+-- vim.opt.guicursor = "n-v-c:block-CursorNormal,i:block-CursorInsert-blinkwait175-blinkon150-blinkoff175"
+
+vim.opt.guicursor = {
+  "n-v-c:block-blinkon0", -- 普通、视觉、命令行模式：方块，且不闪烁 (blinkon0)
+  "i-ci-ve:ver50-blinkwait175-blinkoff150-blinkon175", -- 插入模式：50%厚竖线，且开启闪烁
+  "r-cr:hor20",
+  "o:hor50",
+  "a:Cursor/lCursor",
+}
+
+vim.api.nvim_set_hl(0, "NeoTreeModified", { fg = "#e69875", bold = true })
+vim.api.nvim_set_hl(0, "NeoTreeGitModified", { fg = "#dbbc7f" })
+vim.api.nvim_set_hl(0, "NeoTreeGitAdded", { fg = "#a7c080" })
+vim.api.nvim_set_hl(0, "NeoTreeGitDeleted", { fg = "#e67e80" })
+vim.api.nvim_set_hl(0, "NeoTreeGitUntracked", { fg = "#F07178" })
+vim.api.nvim_set_hl(0, "NeoTreeIndentMarker", { fg = "#4f585e" })
