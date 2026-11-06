@@ -11,7 +11,6 @@ return {
   { import = "astrocommunity.pack.json" },
   { import = "astrocommunity.recipes.diagnostic-virtual-lines-current-line" },
   { import = "astrocommunity.recipes.heirline-nvchad-statusline" },
-  -- { import = "astrocommunity.recipes.heirline-clock-statusline" },
   { import = "astrocommunity.recipes.picker-nvchad-theme" },
   { import = "astrocommunity.recipes.heirline-vscode-winbar" },
   { import = "astrocommunity.motion.mini-ai" },
@@ -23,5 +22,7 @@ return {
   { import = "astrocommunity.diagnostics.trouble-nvim" },
   { import = "astrocommunity.recipes.neovide" },
   { import = "astrocommunity.lsp.lsp-signature-nvim" },
-  { import = "astrocommunity.ai.opencode-nvim" },
+  -- opencode.nvim is configured in lua/plugins/opencode.lua:
+  -- the astrocommunity module still targets the pre-1.0 API (`toggle`, `prompt` opts, ...).
+  -- { import = "astrocommunity.ai.opencode-nvim" },
 }
