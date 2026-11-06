@@ -8,19 +8,21 @@ return {
   "AstroNvim/astrocore",
   ---@type AstroCoreOpts
   opts = {
-    -- Configure core features of AstroNvim
     features = {
-      large_buf = { size = 1024 * 256, lines = 10000 }, -- set global limits for large files for disabling features like treesitter
-      autopairs = true, -- enable autopairs at start
-      cmp = true, -- enable completion at start
-      diagnostics = { virtual_text = true, virtual_lines = false }, -- diagnostic settings on startup
-      highlighturl = true, -- highlight URLs at start
-      notifications = true, -- enable notifications at start
+      large_buf = { size = 1024 * 256, lines = 10000 },
+      autopairs = true,
+      cmp = true,
+      diagnostics = { virtual_text = true, virtual_lines = false },
+      highlighturl = true,
+      notifications = true,
     },
-    -- Diagnostics configuration (for vim.diagnostics.config({...})) when diagnostics are on
     diagnostics = {
       virtual_text = true,
       underline = true,
+    },
+    treesitter = {
+      ensure_installed = { "lua", "vim" },
+      highlight = true,
     },
     -- passed to `vim.filetype.add`
     filetypes = {
