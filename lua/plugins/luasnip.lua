@@ -5,8 +5,9 @@ return {
     config = function(plugin, opts)
       -- 禁用历史记录，这是第一道防线
       opts.history = false
-      -- 只要光标乱动，就检查是否该断开
-      opts.region_check_events = "InsertEnter,CursorMoved"
+      -- 注意：插入模式下方向键移动光标触发的是 CursorMovedI（不是 CursorMoved），
+      -- 缺了它，方向键移出 snippet 后它仍然保持活跃，之后按 Tab 会跳回旧占位符
+      opts.region_check_events = "InsertEnter,CursorMoved,CursorMovedI"
       opts.delete_check_events = "TextChanged,InsertLeave"
 
       require "astronvim.plugins.configs.luasnip"(plugin, opts)
